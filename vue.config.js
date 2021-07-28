@@ -1,6 +1,18 @@
+const path = require('path');
+
 module.exports = {
   publicPath: process.env.NODE_ENV === 'production' ? '/production-sub-path/' : './',
-
+  configureWebpack: {
+    resolve: {
+      alias: {
+        'assets': '@/assets',
+        'components': '@/components',
+        'pages': '@/pages',
+        'router': '@/router',
+        'store': '@/store',
+      }
+    }
+  },
   pages: {
     home: {
       entry: './src/pages/home/home.js',
