@@ -1,12 +1,12 @@
 <template>
   <div class="navbar">
     <el-row :gutter="0" type="flex" justify="space-between" align="middle">
-      <el-col :span="6">
+      <el-col :span="5">
         <div class="grid-content bg-purple">
           <el-image style="width: 100px; height: 50px" :src="src"></el-image>
         </div>
       </el-col>
-      <el-col :span="18">
+      <el-col :span="10">
         <div class="grid-content bg-purple">
           <el-menu
             :default-active="activeIndex"
@@ -35,8 +35,11 @@
           </el-menu>
         </div>
       </el-col>
-      <el-col :span="6">
+      <el-col :span="4">
         <div class="grid-content bg-purple">
+          <div class="avatar">
+            <el-avatar src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png"></el-avatar>
+          </div>
           <div class="login">
             <a href="./login.html">Sign in</a> / 
             <a href="./retherge.html">Create Accout</a>
@@ -67,7 +70,7 @@ export default {
 <style scoped>
   .navbar {
     width: 100%;
-    height: 80px;
+    height: 70px;
     background-color: rgb(26, 26, 26);
     position: fixed;
     z-index: 1000;
@@ -86,9 +89,17 @@ export default {
   .grid-content {
     /* background-color: #fff; */
     width: 100%;
-    height: 80px;
+    height: 70px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+  }
+
+  .login {
+    color: #fff;
+  }
+
+  .login a {
+    color: #fff;
   }
 </style>

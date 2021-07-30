@@ -5,8 +5,7 @@
     </header>
     <main>
       <swiper></swiper>
-      HOME,Vue
-      <a href="./about.html">About</a>
+      <main-content></main-content>
     </main>
     <footer>
       
@@ -17,11 +16,13 @@
 <script>
 import NavBar  from 'components/common/navbar/NavBar.vue'
 import Swiper from './childcomps/swiper/Swiper.vue'
+import MainContent from './childcomps/content/MianContent.vue'
 
 export default {
   components: {
     NavBar,
-    Swiper
+    Swiper,
+    MainContent
   },
   data() {
     return {
@@ -35,6 +36,6 @@ export default {
   @import url(~assets/css/base.css);
   main {
     position: relative;
-    top: 80px;
+    /* top: 70px; */
   }
 </style>

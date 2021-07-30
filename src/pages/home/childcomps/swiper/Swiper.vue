@@ -1,13 +1,16 @@
 <template>
   <div class="swiper">
-    <el-carousel 
-      height="85vh"
-      indicator-position="outside"
-    >
-      <el-carousel-item v-for="item in images" :key="item">
-        <img :src="item" alt="">
-      </el-carousel-item>
-    </el-carousel>
+    <div class="swiper-item">
+      <el-carousel 
+        height="70vh"
+        trigger="click"
+      >
+        <button class="load-more">Load More</button>
+        <el-carousel-item v-for="item in images" :key="item">
+          <img :src="item" alt="">
+        </el-carousel-item>
+      </el-carousel>
+    </div>
   </div>
 </template>
 
@@ -30,23 +33,32 @@ export default {
 <style>
   .swiper {
     width: 100%;
-    margin: 0 auto;
+    height: 80vh;
+    background-image: url(https://cdn.pixabay.com/photo/2021/07/27/16/23/buildings-6497337__340.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    
   }
 
-  .el-carousel__item h3 {
-    font-size: 18px;
-    opacity: 0.75;
-    line-height: 300px;
-    margin: 0;
+  .swiper-item {
+    width: 80%;
+    position: relative;
+    margin: 0 auto;
+    top: 20vh;
+
+    /* box-shadow: 20px 20px 15px rgba(0, 0, 0, .3); */
+    box-shadow: 5px 5px 12px 0 rgba(0, 0, 0, 0.3)
   }
-  
-  .el-carousel__item:nth-child(2n) {
-    background-color: #99a9bf;
-  }
-  
-  .el-carousel__item:nth-child(2n+1) {
-    background-color: #d3dce6;
-  }
+
+  /* .swiper-border {
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgb(129, 129, 129);
+    position: absolute;
+    z-index: 10;
+    left: 10px;
+    top: -10px;
+  } */
 
   img {
     width: 100%;
