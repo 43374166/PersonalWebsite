@@ -49,6 +49,7 @@ export default {
     width: 100%;
     height: 350px;
     background-image: url(~assets/images/bgc.png);
+    border-bottom: 1px solid rgba(100, 100, 100, 0.3);
   }
 
   .link-card {

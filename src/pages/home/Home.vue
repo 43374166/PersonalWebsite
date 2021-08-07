@@ -9,8 +9,9 @@
       <recommended-works></recommended-works>
     </main>
     <footer>
-      
+      <footer-content></footer-content>
     </footer>
+    <back-top></back-top>
   </div>
 </template>
 
@@ -19,13 +20,17 @@ import NavBar  from 'components/common/navbar/NavBar.vue'
 import Swiper from './childcomps/Swiper.vue'
 import RecTheAuthors from './childcomps/RecTheAuthors.vue'
 import RecommendedWorks from './childcomps/RecommendedWorks.vue'
+import FooterContent from './childcomps/FooterContent.vue'
+import BackTop from 'components/common/BackTop.vue'
 
 export default {
   components: {
     NavBar,
     Swiper,
     RecTheAuthors,
-    RecommendedWorks
+    RecommendedWorks,
+    FooterContent,
+    BackTop
   },
   data() {
     return {
