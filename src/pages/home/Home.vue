@@ -5,7 +5,8 @@
     </header>
     <main>
       <swiper></swiper>
-      <main-content></main-content>
+      <rec-the-authors></rec-the-authors>
+      <recommended-works></recommended-works>
     </main>
     <footer>
       
@@ -15,14 +16,16 @@
 
 <script>
 import NavBar  from 'components/common/navbar/NavBar.vue'
-import Swiper from './childcomps/swiper/Swiper.vue'
-import MainContent from './childcomps/content/MianContent.vue'
+import Swiper from './childcomps/Swiper.vue'
+import RecTheAuthors from './childcomps/RecTheAuthors.vue'
+import RecommendedWorks from './childcomps/RecommendedWorks.vue'
 
 export default {
   components: {
     NavBar,
     Swiper,
-    MainContent
+    RecTheAuthors,
+    RecommendedWorks
   },
   data() {
     return {

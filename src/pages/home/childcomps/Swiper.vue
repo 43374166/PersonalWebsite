@@ -32,12 +32,14 @@ export default {
 
 <style>
   .swiper {
+    position: relative;
     width: 100%;
     height: 80vh;
     background-image: url(https://cdn.pixabay.com/photo/2021/07/27/16/23/buildings-6497337__340.jpg);
     background-repeat: no-repeat;
     background-size: 100%;
     
+    z-index: 10;
   }
 
   .swiper-item {
@@ -45,6 +47,9 @@ export default {
     position: relative;
     margin: 0 auto;
     top: 20vh;
+
+    border: 1px solid #fff;
+    padding: 10px;
 
     /* box-shadow: 20px 20px 15px rgba(0, 0, 0, .3); */
     box-shadow: 5px 5px 12px 0 rgba(0, 0, 0, 0.3)
