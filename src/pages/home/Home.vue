@@ -1,11 +1,11 @@
 <template>
   <div id="home" ref="home">
     <header>
-      <nav-bar />
+      <nav-bar ref="navbar" :nav-bar-width="navBarWidth"/>
     </header>
     <main>
-      <swiper></swiper>
-      <rec-the-authors></rec-the-authors>
+      <swiper :screen-width="screenWidth"></swiper>
+      <rec-the-authors :screen-width="screenWidth"></rec-the-authors>
       <recommended-works></recommended-works>
     </main>
     <footer>
@@ -34,7 +34,23 @@ export default {
   },
   data() {
     return {
-
+      navBarWidth: 0,
+      screenWidth: 0
+    }
+  },
+  created() {
+    
+  },
+  mounted() {
+    this.getScreenWidth()
+  },
+  updated() {
+    
+  },
+  methods: {
+    getScreenWidth() {
+      this.screenWidth = this.$refs.navbar.$el.offsetWidth
+      this.navBarWidth = this.$refs.navbar.$el.offsetWidth
     }
   }
 }

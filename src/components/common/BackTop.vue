@@ -1,6 +1,6 @@
 <template>
   <div class="back-top">
-    <el-backtop target="" :bottom="50">
+    <el-backtop target="" :bottom="20" :right="10">
     </el-backtop>
   </div>
 </template>
