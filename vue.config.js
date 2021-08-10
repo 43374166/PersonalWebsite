@@ -23,6 +23,14 @@ module.exports = {
 
     about: {
       entry: './src/pages/about/about.js'
-    }
+    },
+
+    login: {
+      entry: './src/pages/login/login.js'
+    },
+
+    about: {
+      entry: './src/pages/register/register.js'
+    },
   }
 }

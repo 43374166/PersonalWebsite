@@ -63,7 +63,7 @@
               </el-submenu>
               <el-menu-item index="3">Acodes</el-menu-item>
               <el-menu-item index="4"
-                ><a href="./about.html" target="_blank">About</a></el-menu-item
+                ><a href="./about.html">About</a></el-menu-item
               >
             </el-menu>
           </div>
@@ -76,8 +76,8 @@
               ></el-avatar>
             </div>
             <div class="login">
-              <a href="./login.html">Sign in</a> /
-              <a href="./retherge.html">Create Accout</a>
+              <a href="./login.html">Login</a> /
+              <a href="./register.html">Create Account</a>
             </div>
           </div>
         </el-col>
@@ -112,7 +112,6 @@ export default {
     handleClose(key, keyPath) {
       console.log(key, keyPath);
     },
-    showMenu() {},
   },
 };
 </script>
@@ -144,11 +143,18 @@ export default {
 }
 
 .login {
-  color: #fff;
+  color: rgb(255, 255, 255);
 }
 
 .login a {
-  color: #fff;
+  color: rgb(240, 240, 240);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.login a:hover {
+  color: #409eff;
 }
 
 .el-dropdown-link {

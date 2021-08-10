@@ -1,6 +1,5 @@
 import Vue from 'vue'
-import App from './Home.vue'
-import router from './childcomps/router';
+import App from './Register.vue'
 import 'element-ui/lib/theme-chalk/index.css';
 import {
   Pagination,
@@ -170,6 +169,5 @@ Vue.prototype.$message = Message;
 Vue.config.productionTip = false
 
 new Vue({
-  router,
   render: h => h(App)
 }).$mount('#app')
