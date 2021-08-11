@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import App from './Register.vue'
+import Register from './Register.vue'
 import 'element-ui/lib/theme-chalk/index.css';
 import {
   Pagination,
@@ -169,5 +169,5 @@ Vue.prototype.$message = Message;
 Vue.config.productionTip = false
 
 new Vue({
-  render: h => h(App)
+  render: h => h(Register)
 }).$mount('#app')

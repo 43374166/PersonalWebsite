@@ -1,5 +1,8 @@
 <template>
   <div class="swiper">
+    <div class="filter">
+      <div class="filter-hidden"></div>
+    </div>
     <div class="swiper-item" v-if="screenWidth > 400">
       <el-carousel 
         height="70vh"
@@ -55,8 +58,24 @@ export default {
     background-image: url(https://cdn.pixabay.com/photo/2021/07/27/16/23/buildings-6497337__340.jpg);
     background-repeat: no-repeat;
     background-size: 100%;
-    
     z-index: 10;
+  }
+
+  .filter {
+    overflow: hidden;
+    width: 100%;
+    height: 80vh;
+    position: absolute;
+  }
+
+  .filter-hidden {
+    width: 100%;
+    height: 80vh;
+    background-image: url(https://cdn.pixabay.com/photo/2021/07/27/16/23/buildings-6497337__340.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    filter: blur(10px);
+    transform: scale(1);
   }
 
   .swiper-item {

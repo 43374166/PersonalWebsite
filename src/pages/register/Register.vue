@@ -1,5 +1,5 @@
 <template>
-  <div class="register">re</div>
+  <div class="register" id="register">这是啥啊！</div>
 </template>
 
 <script>

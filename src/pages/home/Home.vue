@@ -35,11 +35,16 @@ export default {
   data() {
     return {
       navBarWidth: 0,
-      screenWidth: 0
+      screenWidth: 0,
+      token: '',
+      isLogon: true
     }
   },
   created() {
-    
+    if(this.token == '') {
+      this.isLogon = false
+      console.log('你没有登录！');
+    }
   },
   mounted() {
     this.getScreenWidth()

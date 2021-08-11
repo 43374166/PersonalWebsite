@@ -18,19 +18,22 @@ module.exports = {
       entry: './src/pages/home/home.js',
       template: 'public/index.html',
       filename: 'index.html',
-      title: 'Fish Dreams',
+      title: '鱼梦',
     },
 
     about: {
-      entry: './src/pages/about/about.js'
+      entry: './src/pages/about/about.js',
+      title: '关于-鱼梦',
     },
 
     login: {
-      entry: './src/pages/login/login.js'
+      entry: './src/pages/login/login.js',
+      title: '鱼梦-登录',
     },
 
-    about: {
-      entry: './src/pages/register/register.js'
+    register: {
+      entry: './src/pages/register/register.js',
+      title: '鱼梦-注册',
     },
   }
 }

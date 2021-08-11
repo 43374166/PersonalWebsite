@@ -34,7 +34,8 @@
       <el-row :gutter="0" type="flex" justify="space-between" align="middle">
         <el-col :span="5">
           <div class="grid-content bg-purple">
-            <el-image style="width: 100px; height: 50px" :src="src"></el-image>
+            <!-- <img src="../../../assets/FDlogo.png" alt=""> -->
+            <el-image style="width: 60px; height: 60px" :src="src"></el-image>
           </div>
         </el-col>
         <el-col :span="10">
@@ -50,7 +51,7 @@
             >
               <el-menu-item index="1">Home</el-menu-item>
               <el-submenu index="2">
-                <template slot="title">Detail</template>
+                <template slot="title">More</template>
                 <el-menu-item index="2-1">Unity</el-menu-item>
                 <el-menu-item index="2-2">UE4</el-menu-item>
                 <el-menu-item index="2-3">C#</el-menu-item>
@@ -96,7 +97,7 @@ export default {
   },
   data() {
     return {
-      src: "https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg",
+      src: "http://www.fishdreams.cn/img/FD-logo.png",
       activeIndex: "1",
       activeIndex2: "1",
       isCollapse: true,
