@@ -9,7 +9,7 @@
           <el-input 
             placeholder="请输入用户名！"
             type="text"
-            clearable="true"
+            clearable
             prefix-icon="el-icon-user-solid"
             minlength="8"
             maxlength="12"
@@ -19,14 +19,14 @@
             placeholder="请输入密码！"
             prefix-icon="el-icon-lock"
             type="password"
-            clearable="true"
+            clearable
             show-password
             minlength="8"
             maxlength="12"
             v-model="userData.password">
           </el-input>
           <div class="verificationCode">
-            <el-button>获取验证码</el-button>
+            <el-button @click="getVerificationCode">获取验证码</el-button>
             验证码
           </div>
           <el-input 
@@ -37,7 +37,7 @@
               v-model="userData.verificationCode"
               prefix-icon="el-icon-chat-square"
               ></el-input>
-          <el-button type="primary" plain>登录</el-button>
+          <el-button type="primary" @click="commitData" plain>登录</el-button>
         </div>
         <div class="go-create-account">
           <a href="#">Forget Password</a> / 
@@ -54,6 +54,14 @@ export default {
     return {
       userData: { username: '', password: '', verificationCode: '' }
     }
+  },
+  methods: {
+    commitData() {
+
+    },
+    getVerificationCode() {
+
+    },
   }
 }
 </script>
@@ -97,6 +105,8 @@ export default {
     height: 200px;
     display: flex;
     flex-direction: column;
+    
+    justify-content: space-between;
   }
 
 
