@@ -1,7 +1,7 @@
 <template>
   <div id="home" ref="home">
     <header>
-      <nav-bar ref="navbar" :nav-bar-width="navBarWidth"/>
+      <nav-bar ref="navbar" :nav-bar-width="navBarWidth" />
     </header>
     <main>
       <swiper :screen-width="screenWidth"></swiper>

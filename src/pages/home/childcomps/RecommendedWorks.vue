@@ -26,7 +26,7 @@ export default {
     return {
       currentDate: new Date(),
       urlList: ['https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg',
-                'https://cdn.pixabay.com/photo/2021/03/12/05/14/cyberpunk-6088729_960_720.jpg',
+                'https://cdn.pixabay.com/photo/2021/09/07/11/05/ocean-6603616_960_720.jpg',
                 'https://cdn.pixabay.com/photo/2021/03/10/10/58/bamboo-flute-6084294_960_720.jpg',
                 'https://cdn.pixabay.com/photo/2021/03/10/10/55/branches-6084284_960_720.jpg',
                 'https://cdn.pixabay.com/photo/2021/03/10/10/53/sunset-6084279_960_720.jpg',
