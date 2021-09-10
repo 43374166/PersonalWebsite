@@ -97,7 +97,7 @@ export default {
   },
   data() {
     return {
-      src: "http://www.fishdreams.cn/img/FD-logo.png",
+      src: require('assets/FDlogo.png'),
       activeIndex: "1",
       activeIndex2: "1",
       isCollapse: true,
