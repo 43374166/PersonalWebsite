@@ -1,6 +1,6 @@
 <template>
   <div class="recommend-the-authors">
-    <div class="link-card" v-if="screenWidth > 400">
+    <div class="link-card">
       <el-col :span="6">
         <el-card shadow="hover" header="刘斌鲲鲲">
           即使没有人为你鼓掌，也要优雅的谢幕，感谢自己的认真付出。
@@ -14,13 +14,6 @@
       <el-col :span="6" body-style="{height: 100px}">
         <el-card shadow="hover" header="青衫丿白酒"> 
           大多数时候，消耗你能量的都不是工作，而是工作中遇到的人。干活本身是不累的，平衡情绪最累
-        </el-card>
-      </el-col>
-    </div>
-    <div class="link-card-phone" v-else>
-      <el-col :span="24">
-        <el-card shadow="hover" header="刘斌鲲鲲">
-          累的时候抱抱自己，哭的时候哄哄自己，身边不可能无时无刻有一个人陪着你宠着你，要学会自己疼自己。
         </el-card>
       </el-col>
     </div>

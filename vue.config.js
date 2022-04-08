@@ -10,6 +10,7 @@ module.exports = {
         'pages': '@/pages',
         'router': '@/router',
         'store': '@/store',
+        'api': '@/api',
       }
     }
   },
@@ -27,13 +28,23 @@ module.exports = {
     },
 
     login: {
-      entry: './src/pages/login/login.js',
+      entry: './src/pages/login&register/login/login.js',
       title: '鱼梦-登录',
     },
 
     register: {
-      entry: './src/pages/register/register.js',
+      entry: './src/pages/login&register/register/register.js',
       title: '鱼梦-注册',
+    },
+
+    forgetPwd: {
+      entry: './src/pages/login&register/forgetPwd/forgetPwd.js',
+      title: '鱼梦-找回密码',
+    },
+
+    personalCenter: {
+      entry: './src/pages/personalCenter/personalCenter.js',
+      title: '鱼梦-个人中心',
     },
   }
 }

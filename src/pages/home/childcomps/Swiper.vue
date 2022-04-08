@@ -3,23 +3,11 @@
     <div class="filter">
       <div class="filter-hidden"></div>
     </div>
-    <div class="swiper-item" v-if="screenWidth > 400">
+    <div class="swiper-item">
       <el-carousel 
         height="70vh"
         trigger="click"
       >
-        <button class="load-more">Load More</button>
-        <el-carousel-item v-for="item in images" :key="item">
-          <img :src="item" alt="">
-        </el-carousel-item>
-      </el-carousel>
-    </div>
-    <div v-else class="swiper-item">
-      <el-carousel 
-        height="30vh"
-        trigger="click"
-      >
-        <button class="load-more">Load More</button>
         <el-carousel-item v-for="item in images" :key="item">
           <img :src="item" alt="">
         </el-carousel-item>

@@ -13,8 +13,8 @@ export default {
 <style>
   .footer-content {
     width: 100%;
-    height: 150px;
-    line-height: 150px;
+    height: 100px;
+    line-height: 100px;
     text-align: center;
   }
 </style>

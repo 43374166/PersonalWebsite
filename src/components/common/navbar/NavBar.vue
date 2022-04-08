@@ -1,36 +1,6 @@
 <template>
   <div class="navbar">
-    <div v-if="navBarWidth < 950" class="phone-nav-bar">
-      <div class="dropdown">
-        <el-dropdown trigger="click">
-          <img
-            src="~assets/images/loadMore.svg"
-            class="dropdown-img"
-            alt=""
-            style="width: 30px"
-          />
-          <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item><a href="#">Home</a></el-dropdown-item>
-            <el-dropdown-item
-              ><a href="./about.html">About</a></el-dropdown-item
-            >
-            <el-dropdown-item><a href="#">CellMe</a></el-dropdown-item>
-            <el-dropdown-item><a href="#">Help</a></el-dropdown-item>
-          </el-dropdown-menu>
-        </el-dropdown>
-      </div>
-      <div class="phone-logo">
-        <el-image style="width: 100px; height: 50px" :src="src"></el-image>
-      </div>
-      <div class="phone-login">
-        <div class="avatar">
-          <el-avatar
-            src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png"
-          ></el-avatar>
-        </div>
-      </div>
-    </div>
-    <div v-else>
+    <div>
       <el-row :gutter="0" type="flex" justify="space-between" align="middle">
         <el-col :span="5">
           <div class="grid-content bg-purple">
@@ -50,18 +20,7 @@
               active-text-color="#fff"
             >
               <el-menu-item index="1">Home</el-menu-item>
-              <el-submenu index="2">
-                <template slot="title">More</template>
-                <el-menu-item index="2-1">Unity</el-menu-item>
-                <el-menu-item index="2-2">UE4</el-menu-item>
-                <el-menu-item index="2-3">C#</el-menu-item>
-                <el-submenu index="2-4">
-                  <template slot="title">摄影作品</template>
-                  <el-menu-item index="2-4-1">清新</el-menu-item>
-                  <el-menu-item index="2-4-2">max</el-menu-item>
-                  <el-menu-item index="2-4-3">项目</el-menu-item>
-                </el-submenu>
-              </el-submenu>
+              <el-menu-item index="2">Fish</el-menu-item>
               <el-menu-item index="3">Acodes</el-menu-item>
               <el-menu-item index="4"
                 ><a href="./about.html">About</a></el-menu-item
@@ -71,14 +30,30 @@
         </el-col>
         <el-col :span="4">
           <div class="grid-content bg-purple">
-            <div class="avatar">
+            <div class="userinfo" v-if="isLogin">
               <el-avatar
-                src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png"
+                class="avatar"
+                :src="userinfo.user_pic"
               ></el-avatar>
+              <div class="userInfo-tab">
+                <div class="nikename">{{userinfo.nickname}}</div>
+                <div class="hyperlinks">
+                  <div class="hyperlinks-box" v-for="(item, index) in hrefs">
+                    <div class="hyperlinks-item">
+                      <div class="icon-left">
+                        <i class="icon-left-i" :class="item.icon"></i>
+                        <a class="hyperlink" :href="item.href">{{item.text}}</a>
+                      </div>
+                      <i class="el-icon-arrow-right icon-right"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="logout" @click="logout">退出登录</div>
+              </div>             
             </div>
-            <div class="login">
-              <a href="./login.html">Login</a> /
-              <a href="./register.html">Create Account</a>
+            <div class="login" v-else>
+              <a href="./login.html">登录</a> /
+              <a href="./register.html">注册</a>
             </div>
           </div>
         </el-col>
@@ -88,6 +63,7 @@
 </template>
 
 <script>
+import { getUserinfo } from "api/userinfo.js";
 export default {
   props: {
     navBarWidth: {
@@ -97,11 +73,36 @@ export default {
   },
   data() {
     return {
-      src: require('assets/FDlogo.png'),
-      activeIndex: "1",
+      userinfo: {},
+      src: 'http://192.168.65.1:8080/uploads/images/Logo-FD.png',
       activeIndex2: "1",
       isCollapse: true,
+      isLogin: false,
+      token: '',
+      hrefs: [
+        {href: 'personalCenter.html', text: '个人中心', icon: 'el-icon-s-custom'},
+        {href: './personal-center', text: '稿件管理', icon: 'el-icon-s-cooperation'},
+        {href: './personal-center', text: '个人中心', icon: 'el-icon-s-custom'},
+        {href: './personal-center', text: '个人中心', icon: 'el-icon-s-custom'},
+        {href: './personal-center', text: '个人中心', icon: 'el-icon-s-custom'},
+        {href: './personal-center', text: '个人中心', icon: 'el-icon-s-custom'},
+      ]
     };
+  },
+  created() {
+    
+    this.token = localStorage.getItem('token')
+    console.log(this.token);
+    if(this.token != null) {
+      this.isLogin = true
+      getUserinfo('/my/userinfo')
+      .then(res => {
+        this.userinfo = res.data
+      })
+      console.log('登录成功');
+    }else {
+      this.$message.error('请您先登录！')
+    }
   },
   methods: {
     handleSelect(key, keyPath) {
@@ -113,11 +114,24 @@ export default {
     handleClose(key, keyPath) {
       console.log(key, keyPath);
     },
+    logout() {
+      localStorage.removeItem('token');
+      window.location.replace('/login.html')
+    }
   },
 };
 </script>
 
 <style scoped>
+@-webkit-keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
+
 .navbar {
   width: 100%;
   height: 70px;
@@ -187,5 +201,100 @@ export default {
 
 .el-dropdown-menu__item:hover a {
   color: #409eff;
+}
+
+.avatar {
+  display: block;
+  transition: 0.3s all;
+  border: 1px solid rgb(224, 224, 224);
+}
+.userinfo:hover .avatar{
+  position: relative;
+  z-index: 100;
+  box-shadow: 0px 1px 5px 1px rgba(0, 0, 0, 0.2);
+  transform: scale(2) translate(-10%, 20%);
+  transition: 0.3s all;
+}
+
+.userInfo-tab {
+  background-color: #fff;
+  position: absolute;
+  display: none;
+  opacity: 0;
+  /* display: flex;
+  flex-direction: column;
+  justify-content:  space-evenly;
+  align-items: center; */
+  width: 220px;
+  height: 450px;
+  right: 30px;
+  border-radius: 5px;
+  transition: 0.3s all;
+  
+}
+
+.userinfo:hover .userInfo-tab{
+  display: flex;
+  flex-direction: column;
+  justify-content:  space-evenly;
+  align-items: center;
+  opacity: 1;
+  transition: 0.3s all;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+.logout {
+  cursor: pointer;
+  /* position: absolute; */
+  width: 90%;
+  bottom: 20px;
+  text-align: center;
+  /* margin: 0 auto; */
+}
+
+.hyperlinks {
+  width: 90%;
+  height: 300px;
+  display: flex;
+  /* margin: 30px 0 0 0; */
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  border-bottom: 1px solid black;
+}
+
+.hyperlinks-box {
+  width: 90%;
+  height: 40px;
+  padding: 10px 5px;
+}
+
+.hyperlinks-item {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 0 5px 0 5px;
+  transition: 0.3s all;
+}
+
+.hyperlinks-item:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  transition: 0.3s all;
+}
+
+.hyperlinks-item a {
+  display: inline-block;
+  margin-left: 7px;
+  text-decoration: none;
+  color: black;
+}
+
+.nikename {
+  margin-top: 20px;
 }
 </style>

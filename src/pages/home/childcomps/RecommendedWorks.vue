@@ -1,15 +1,16 @@
 <template>
   <div class="recommended-works">
     <div class="works">
-      <div class="card-box" v-for="item in urlList" :key="item">
+      <div class="card-box" v-for="(item, index) in urlList" :key="index">
         <div class="card">
           <el-image
             :src="item"
-            :preview-src-list="srcList"
-            fit="fill"
+            :on-close="()=>{showViewer=true}"
+            :preview-src-list="item | filterImg"
+            fit="cover"
           >
           </el-image>
-          <span class="authorName">阿坤hh</span>
+          <span class="authorName">作者</span>
           <div class="desc">
             <span class="desc-text">这些大概都是我拍摄的风景照片，希望技术越来越高，哈哈哈。</span>
             <span class="load-more">更多</span>
@@ -24,6 +25,7 @@
 export default {
   data() {
     return {
+      showViewer: false,
       currentDate: new Date(),
       urlList: ['https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg',
                 'https://cdn.pixabay.com/photo/2021/09/07/11/05/ocean-6603616_960_720.jpg',
@@ -39,7 +41,16 @@ export default {
         ]
     };
   },
-};
+  filters: {
+    	filterImg(item) {
+      		if (typeof item === "string") {
+        		return item.split("|");
+      		}else{
+        		return item
+      		}
+    	},
+	}
+}
 </script>
 
 <style>
@@ -63,7 +74,7 @@ export default {
 
 .card {
   width: 270px;
-  /* height: 350px; */
+  height: 380px;
   border-radius: 6px;
   margin: 0 10px;
   box-shadow: 0 0 2px 0 rgba(50, 50, 50, 0.5);

@@ -1,5 +1,5 @@
 <template>
-  <div id="home" ref="home">
+  <div id="home" ref="home" v-loading.fullscreen.lock="fullscreenLoading">
     <header>
       <nav-bar ref="navbar" :nav-bar-width="navBarWidth" />
     </header>
@@ -37,16 +37,17 @@ export default {
       navBarWidth: 0,
       screenWidth: 0,
       token: '',
-      isLogon: true
+      isLogon: false,
+      fullscreenLoading: false,
     }
   },
   created() {
-    if(this.token == '') {
-      this.isLogon = false
-      console.log('你没有登录！');
-    }
+    this.fullscreenLoading = true;
   },
   mounted() {
+    setTimeout(() => {
+      this.fullscreenLoading = false
+    }, 2000)
     this.getScreenWidth()
   },
   updated() {
