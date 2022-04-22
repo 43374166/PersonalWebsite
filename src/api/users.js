@@ -1,4 +1,6 @@
-import { request } from "./request";
+import {
+  request
+} from "./request";
 
 function get(url, params) {
   return request({
@@ -34,4 +36,27 @@ function login(url, params) {
   })
 }
 
-export {get, sentEmaliV, register, login}
+function forgetPwdGetCode(url, params) {
+  return request({
+    method: 'post',
+    url,
+    data: params
+  })
+}
+
+function changePwd(url, params) {
+  return request({
+    method: 'post',
+    url,
+    data: params
+  })
+}
+
+export {
+  get,
+  sentEmaliV,
+  register,
+  login,
+  forgetPwdGetCode,
+  changePwd
+}

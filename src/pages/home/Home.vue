@@ -1,5 +1,9 @@
 <template>
-  <div id="home" ref="home" v-loading.fullscreen.lock="fullscreenLoading">
+  <div id="home" ref="home">
+    <dv-loading 
+      v-if="fullscreenLoading"
+      class="dv-loading"
+    >Loading...</dv-loading>
     <header>
       <nav-bar ref="navbar" :nav-bar-width="navBarWidth" />
     </header>
@@ -38,11 +42,11 @@ export default {
       screenWidth: 0,
       token: '',
       isLogon: false,
-      fullscreenLoading: false,
+      fullscreenLoading: true,
     }
   },
   created() {
-    this.fullscreenLoading = true;
+
   },
   mounted() {
     setTimeout(() => {
@@ -62,10 +66,19 @@ export default {
 }
 </script>
 
-<style>
+<style scoped lang="less">
   @import url(~assets/css/base.css);
   main {
     position: relative;
     /* top: 70px; */
+  }
+
+  .dv-loading {
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    z-index: 10000;
+    width: 100%;
+    height: 100vh;
+    color: white;
   }
 </style>

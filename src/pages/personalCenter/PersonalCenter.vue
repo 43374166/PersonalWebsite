@@ -279,14 +279,14 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="less" scoped>
 @import url(~assets/css/base.css);
 .navbar {
   width: 100%;
   height: 60px;
   background-color: rgb(48, 48, 48);
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
 }
 

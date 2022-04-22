@@ -75,7 +75,7 @@ export default {
     return {
       userinfo: {},
       src: 'http://192.168.65.1:8080/uploads/images/Logo-FD.png',
-      activeIndex2: "1",
+      activeIndex: "1",
       isCollapse: true,
       isLogin: false,
       token: '',
@@ -92,7 +92,7 @@ export default {
   created() {
     
     this.token = localStorage.getItem('token')
-    console.log(this.token);
+    // console.log(this.token);
     if(this.token != null) {
       this.isLogin = true
       getUserinfo('/my/userinfo')

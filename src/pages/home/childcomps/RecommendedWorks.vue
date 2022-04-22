@@ -8,6 +8,7 @@
             :on-close="()=>{showViewer=true}"
             :preview-src-list="item | filterImg"
             fit="cover"
+            lazy
           >
           </el-image>
           <span class="authorName">作者</span>
@@ -53,7 +54,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less">
 .recommended-works {
   width: 100%;
   margin: 20px 0 0 0;

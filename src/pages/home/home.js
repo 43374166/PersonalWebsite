@@ -1,6 +1,10 @@
 import Vue from 'vue'
 import App from './Home.vue'
 import router from './childcomps/router';
+
+import dataV from '@jiaminghi/data-view'
+Vue.use(dataV)
+
 import 'element-ui/lib/theme-chalk/index.css';
 import {
   Pagination,
