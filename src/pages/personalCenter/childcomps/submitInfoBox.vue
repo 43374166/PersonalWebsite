@@ -166,6 +166,7 @@ export default {
         setTimeout(() => {
           this.$emit('isShowAva', this.isShowAva)
           this.loading = false;
+          window.location.reload()
         }, 3000);
        }
      });

@@ -10,11 +10,13 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less" scoped>
   .footer-content {
     width: 100%;
     height: 100px;
     line-height: 100px;
     text-align: center;
+
+    border: 1px solid rgba(0, 0, 0, .5);
   }
-</style>
+</style>>

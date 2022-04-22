@@ -14,6 +14,8 @@ module.exports = {
       }
     }
   },
+
+  // 配置多页面
   pages: {
     home: {
       entry: './src/pages/home/home.js',
@@ -46,5 +48,11 @@ module.exports = {
       entry: './src/pages/personalCenter/personalCenter.js',
       title: '鱼梦-个人中心',
     },
+  },
+
+  // 设置测试本地启动主机和端口
+  devServer: {
+    port: 8000, // 端口号
+    open: true, // 是否自动打开浏览器
   }
 }

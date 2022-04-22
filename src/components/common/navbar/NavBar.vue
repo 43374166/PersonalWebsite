@@ -82,10 +82,10 @@ export default {
       hrefs: [
         {href: 'personalCenter.html', text: '个人中心', icon: 'el-icon-s-custom'},
         {href: './personal-center', text: '稿件管理', icon: 'el-icon-s-cooperation'},
-        {href: './personal-center', text: '个人中心', icon: 'el-icon-s-custom'},
-        {href: './personal-center', text: '个人中心', icon: 'el-icon-s-custom'},
-        {href: './personal-center', text: '个人中心', icon: 'el-icon-s-custom'},
-        {href: './personal-center', text: '个人中心', icon: 'el-icon-s-custom'},
+        {href: './personal-center', text: '收藏中心', icon: 'el-icon-star-on'},
+        {href: './personal-center', text: '我的消息', icon: 'el-icon-s-comment'},
+        {href: './personal-center', text: '鱼币钱包', icon: 'el-icon-coin'},
+        // {href: './personal-center', text: '', icon: 'el-icon-s-custom'},
       ]
     };
   },

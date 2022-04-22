@@ -1,8 +1,11 @@
 <template>
   <div id="personalCenter">
+    <!-- 导航栏 -->
     <div class="navbar">
       <div class="back-home" @click="backHome">FishDream</div>
     </div>
+
+    <!-- 背景以及中间内容 -->
     <div class="userinfo-bg">
       <div class="filter">
         <div class="filter-hidden"></div>
@@ -34,9 +37,11 @@
       </div>
     </div>
 
+    <!-- 修改资料的按钮 -->
     <div>
-      <el-button type="primary" @click="updateInfo">修改资料</el-button>
+      <el-button class="changeInfo" type="primary" @click="updateInfo">修改资料</el-button>
     </div>
+
     <!-- 展示修改资料信息 -->
     <div v-show="isShow" class="updated-userinfo">
       <transition name="el-fade-in-linear">
@@ -296,6 +301,7 @@ export default {
   font-weight: 600;
   cursor: pointer;
   margin: 0 30px;
+  text-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.4);
 }
 
 .userinfo {
@@ -317,6 +323,7 @@ export default {
   background-size: 100%;
   color: #fff;
 }
+
 
 .separate {
   margin: 0 10px;
@@ -406,5 +413,13 @@ export default {
 .addBefore::before {
   content: "修改头像";
   transition: all 1s;
+}
+
+.changeInfo {
+  position: absolute;
+  top: 65px;
+  right: 5px;
+  // display: none;
+  transition: all 0.3s;
 }
 </style>
