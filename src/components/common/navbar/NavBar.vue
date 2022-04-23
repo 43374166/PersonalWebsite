@@ -33,7 +33,7 @@
             <div class="userinfo" v-if="isLogin">
               <el-avatar
                 class="avatar"
-                :src="userinfo.user_pic"
+                :src="userinfo?.user_pic"
               ></el-avatar>
               <div class="userInfo-tab">
                 <div class="nikename">{{userinfo.nickname}}</div>
@@ -74,7 +74,7 @@ export default {
   data() {
     return {
       userinfo: {},
-      src: 'http://192.168.65.1:8080/uploads/images/Logo-FD.png',
+      src: 'http://106.13.185.143:8080/uploads/images/Logo-FD.png',
       activeIndex: "1",
       isCollapse: true,
       isLogin: false,
@@ -99,9 +99,10 @@ export default {
       .then(res => {
         this.userinfo = res.data
       })
-      console.log('登录成功');
     }else {
-      this.$message.error('请您先登录！')
+      setTimeout(() => {
+        this.$message.error('请您先登录！')
+      }, 2300)
     }
   },
   methods: {

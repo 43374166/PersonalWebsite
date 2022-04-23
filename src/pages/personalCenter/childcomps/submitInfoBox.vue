@@ -168,6 +168,8 @@ export default {
           this.loading = false;
           window.location.reload()
         }, 3000);
+       }else if(res.status == 1) {
+         this.$message.error(res.message)
        }
      });
    },

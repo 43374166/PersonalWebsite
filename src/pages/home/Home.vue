@@ -1,8 +1,8 @@
 <template>
   <div id="home" ref="home">
-    <phone v-if="screenWidth < 400" />
+    <dv-loading v-show="fullscreenLoading" class="dv-loading">Loading...</dv-loading>
+    <phone v-if="screenWidth < 450" />
     <div v-else>
-      <dv-loading v-if="fullscreenLoading" class="dv-loading">Loading...</dv-loading>
       <header>
         <nav-bar ref="navbar" :nav-bar-width="navBarWidth" />
       </header>
@@ -47,7 +47,9 @@ export default {
       fullscreenLoading: true,
     };
   },
-  created() {},
+  created() {
+    
+  },
   mounted() {
     setTimeout(() => {
       this.fullscreenLoading = false;

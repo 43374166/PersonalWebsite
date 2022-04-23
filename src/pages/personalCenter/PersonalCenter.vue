@@ -20,7 +20,7 @@
             class="avatar"
             :class="{ addBefore: addBefore }"
             :size="100"
-            :src="userinfo.user_pic"
+            :src="userinfo?.user_pic"
           ></el-avatar>
         </div>
         <span class="nickname">{{ userinfo.nickname || "未填写" }}</span>
@@ -147,6 +147,10 @@ export default {
     getUserinfo() {
       getUserinfo("/my/userinfo")
         .then((res) => {
+          if(res.status === 1) {
+            this.$message.error(res.message)
+            return
+          }
           this.userinfo = res.data;
           console.log(this.userinfo);
           const date = new Date(res.data.age);
