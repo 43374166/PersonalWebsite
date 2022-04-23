@@ -33,7 +33,7 @@
             <div class="userinfo" v-if="isLogin">
               <el-avatar
                 class="avatar"
-                :src="userinfo?.user_pic"
+                :src="userinfo.user_pic"
               ></el-avatar>
               <div class="userInfo-tab">
                 <div class="nikename">{{userinfo.nickname}}</div>

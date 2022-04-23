@@ -20,7 +20,7 @@
             class="avatar"
             :class="{ addBefore: addBefore }"
             :size="100"
-            :src="userinfo?.user_pic"
+            :src="userinfo.user_pic"
           ></el-avatar>
         </div>
         <span class="nickname">{{ userinfo.nickname || "未填写" }}</span>
