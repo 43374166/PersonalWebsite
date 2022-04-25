@@ -27,26 +27,31 @@ module.exports = {
     about: {
       entry: './src/pages/about/about.js',
       title: '关于-鱼梦',
+      filename: 'about/index.html'
     },
 
     login: {
       entry: './src/pages/login&register/login/login.js',
       title: '鱼梦-登录',
+      filename: 'login/index.html'
     },
 
     register: {
       entry: './src/pages/login&register/register/register.js',
       title: '鱼梦-注册',
+      filename: 'register/index.html'
     },
 
     forgetPwd: {
       entry: './src/pages/login&register/forgetPwd/forgetPwd.js',
       title: '鱼梦-找回密码',
+      filename: 'forgetPwd/index.html'
     },
 
-    personalCenter: {
+    personalcenter: {
       entry: './src/pages/personalCenter/personalCenter.js',
       title: '鱼梦-个人中心',
+      filename: 'personalCenter/index.html'
     },
   },
 

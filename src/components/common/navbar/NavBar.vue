@@ -9,23 +9,35 @@
           </div>
         </el-col>
         <el-col :span="10">
-          <div class="grid-content bg-purple">
-            <el-menu
-              :default-active="activeIndex"
-              class="el-menu-demo"
-              mode="horizontal"
-              @select="handleSelect"
-              background-color="rgb(26, 26, 26)"
-              text-color="#fff"
-              active-text-color="#fff"
-            >
-              <el-menu-item index="1">Home</el-menu-item>
-              <el-menu-item index="2">Fish</el-menu-item>
-              <el-menu-item index="3">Acodes</el-menu-item>
-              <el-menu-item index="4"
-                ><a href="./about.html">About</a></el-menu-item
-              >
-            </el-menu>
+          <div class="content-search bg-purple">
+            <div class="search-input-submit">
+              <el-input 
+                type="search"
+                v-model="value"
+                :clearable="true"
+                prefix-icon="el-icon-search"
+                autocomplete="on"
+                name="search"
+                @focus="showSearchContent"
+                @blur="noShowSearch"
+              />
+              <el-button @click="onSearch" type="primary" icon="el-icon-search">搜索</el-button>
+            </div>
+            <div v-if="isShowSearch" class="search">
+              <div class="before-search">
+                <div class="history-search">
+                  <div class="history-title">搜索历史</div>
+                  <span class="history-content"></span>
+                </div>
+                <div class="hot-search">
+                  <div class="hot-title">热搜</div>
+                  <span class="hot-content"></span>
+                </div>
+              </div>
+              <div class="searching">
+
+              </div>
+            </div>
           </div>
         </el-col>
         <el-col :span="4">
@@ -52,8 +64,8 @@
               </div>             
             </div>
             <div class="login" v-else>
-              <a href="./login.html">登录</a> /
-              <a href="./register.html">注册</a>
+              <a href="./login">登录</a> /
+              <a href="./register">注册</a>
             </div>
           </div>
         </el-col>
@@ -73,6 +85,8 @@ export default {
   },
   data() {
     return {
+      isShowSearch: false,
+      value: '',
       userinfo: {},
       src: 'http://106.13.185.143:8080/uploads/images/Logo-FD.png',
       activeIndex: "1",
@@ -80,7 +94,7 @@ export default {
       isLogin: false,
       token: '',
       hrefs: [
-        {href: 'personalCenter.html', text: '个人中心', icon: 'el-icon-s-custom'},
+        {href: 'personalcenter', text: '个人中心', icon: 'el-icon-s-custom'},
         {href: './personal-center', text: '稿件管理', icon: 'el-icon-s-cooperation'},
         {href: './personal-center', text: '收藏中心', icon: 'el-icon-star-on'},
         {href: './personal-center', text: '我的消息', icon: 'el-icon-s-comment'},
@@ -118,12 +132,21 @@ export default {
     logout() {
       localStorage.removeItem('token');
       window.location.replace('/login.html')
+    },
+    onSearch() {
+
+    },
+    showSearchContent() {
+      this.isShowSearch = true
+    },
+    noShowSearch() {
+      this.isShowSearch = false
     }
   },
 };
 </script>
 
-<style scoped>
+<style lang="less" scoped>
 @-webkit-keyframes fadeIn {
     from { opacity: 0; }
       to { opacity: 1; }
@@ -297,5 +320,34 @@ export default {
 
 .nikename {
   margin-top: 20px;
+}
+
+.content-search {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  top: -20px;
+  .search-input-submit {
+    position: absolute;
+    width: 80%;
+    padding: 2px 5px;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    // height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .search {
+    position: absolute;
+    margin: 40px 0 0 0;
+    width: 80%;
+    padding: 0 5px;
+    background-color: #fff;
+    height: 300px;
+    z-index: -1;
+    border-radius: 0 0 5px 5px;
+  }
 }
 </style>

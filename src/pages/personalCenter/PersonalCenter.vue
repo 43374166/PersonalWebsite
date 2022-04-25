@@ -42,6 +42,20 @@
       <el-button class="changeInfo" type="primary" @click="updateInfo">修改资料</el-button>
     </div>
 
+    <div class="tabbar">
+      <div class="tabbar-item">
+        <el-tabs v-model="activeName" @tab-click="handleClick">
+          <el-tab-pane label="我的作品" name="portfolio"></el-tab-pane>
+          <el-tab-pane label="配置管理" name="portfolios"></el-tab-pane>
+          <el-tab-pane label="角色管理" name="third"></el-tab-pane>
+          <el-tab-pane label="定时任务补偿" name="fourth"></el-tab-pane>
+        </el-tabs>
+      </div>
+    </div>
+    <div>
+      <router-view />
+    </div>
+
     <!-- 展示修改资料信息 -->
     <div v-show="isShow" class="updated-userinfo">
       <transition name="el-fade-in-linear">
@@ -126,6 +140,7 @@ export default {
 
   data() {
     return {
+      activeName: 'portfolio',
       userinfo: {},
       updateUserinfo: {
         nickname: "",
@@ -141,7 +156,9 @@ export default {
   created() {
     this.getUserinfo();
   },
-
+  mounted(){
+    
+  },
   methods: {
     // 获取用户信息
     getUserinfo() {
@@ -152,7 +169,10 @@ export default {
             return
           }
           this.userinfo = res.data;
-          console.log(this.userinfo);
+          // console.log(this.userinfo);
+          this.$router.push({
+            path: `/personalcenter/${this.userinfo.username}/portfolio`
+          })
           const date = new Date(res.data.age);
           const nowDate = new Date(new Date().getTime()).getFullYear();
           this.userinfo.ageTime = nowDate - date.getFullYear();
@@ -284,6 +304,12 @@ export default {
     noShowUpdateText() {
       this.addBefore = false;
     },
+
+    handleClick(event) {
+      this.$router.push({
+        path: `/personalcenter/${this.userinfo.username}/${event.name}`
+      })
+    }
   },
 };
 </script>
@@ -425,5 +451,16 @@ export default {
   right: 5px;
   // display: none;
   transition: all 0.3s;
+}
+
+.tabbar {
+  width: 100%;
+  .tabbar-item {
+    padding: 10px 0;
+    width: 100%;
+    // height: 80px;
+    display: flex;
+    justify-content: center;
+  }
 }
 </style>
