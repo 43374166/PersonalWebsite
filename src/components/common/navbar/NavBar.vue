@@ -348,6 +348,7 @@ export default {
     height: 300px;
     z-index: -1;
     border-radius: 0 0 5px 5px;
+    transition: all 0.3s;
   }
 }
 </style>

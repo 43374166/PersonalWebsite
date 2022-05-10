@@ -1,9 +1,18 @@
 <template>
   <div id="personalCenter">
     <!-- 导航栏 -->
-    <div class="navbar">
-      <div class="back-home" @click="backHome">FishDream</div>
-    </div>
+    <navbar-slot>
+      <template #left>
+        <div class="back-home" @click="backHome">FishDream</div>
+      </template>
+      <template #right>
+        <div class="btns">
+          <!-- 修改资料的按钮 -->
+          <el-button class="changeInfo" type="primary" @click="updateInfo">修改资料</el-button>
+          <el-button type="primary">投稿<i class="el-icon-upload el-icon--right"></i></el-button>
+        </div>
+      </template>
+    </navbar-slot>
 
     <!-- 背景以及中间内容 -->
     <div class="userinfo-bg">
@@ -35,11 +44,6 @@
         </div>
         <div class="signature">{{ userinfo.signature }}</div>
       </div>
-    </div>
-
-    <!-- 修改资料的按钮 -->
-    <div>
-      <el-button class="changeInfo" type="primary" @click="updateInfo">修改资料</el-button>
     </div>
 
     <div class="tabbar">
@@ -132,10 +136,12 @@
 <script>
 import { getUserinfo, updateUserinfo } from "api/userinfo.js";
 import SubmitInfoBox from "./childcomps/submitInfoBox.vue";
+import NavbarSlot from 'components/common/navbar/NavbarSlot';
 
 export default {
   components: {
     SubmitInfoBox,
+    NavbarSlot,
   },
 
   data() {
@@ -316,15 +322,6 @@ export default {
 
 <style lang="less" scoped>
 @import url(~assets/css/base.css);
-.navbar {
-  width: 100%;
-  height: 60px;
-  background-color: rgb(48, 48, 48);
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-
 .back-home {
   color: white;
   font-size: 25px;
@@ -346,6 +343,7 @@ export default {
 }
 
 .userinfo-bg {
+  margin: 60px 0 0 0;
   width: 100%;
   height: 250px;
   background-image: url(https://cdn.pixabay.com/photo/2021/07/27/16/23/buildings-6497337__340.jpg);
@@ -374,6 +372,7 @@ export default {
 
 .updated-userinfo {
   position: fixed;
+  z-index: 1000;
   top: 0;
   width: 100%;
   height: 100vh;
@@ -446,7 +445,7 @@ export default {
 }
 
 .changeInfo {
-  position: absolute;
+  // position: absolute;
   top: 65px;
   right: 5px;
   // display: none;
@@ -462,5 +461,16 @@ export default {
     display: flex;
     justify-content: center;
   }
+}
+
+.btns {
+  width: 250px;
+  flex-direction: row;
+  display: flex;
+  justify-content: space-around;
+}
+
+/deep/.el-picker-panel {
+  z-index: 10001 !important;
 }
 </style>

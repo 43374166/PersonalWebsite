@@ -27,6 +27,7 @@ export default {
     color: #fff;
     background-color: #000;
     position: fixed;
+    z-index: 10000;
     top: 0;
     left: 0;
     display: flex;
