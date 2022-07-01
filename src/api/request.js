@@ -5,7 +5,7 @@ export function request(config) {
   let baseURL = ''
 
   if(process.env.VUE_APP_CURRENTMODE == 'production') {
-    baseURL = 'http://106.13.185.143:8080'
+    baseURL = 'http://159.138.57.207/:8080'
   }
 
   if(process.env.VUE_APP_CURRENTMODE == 'development') {
