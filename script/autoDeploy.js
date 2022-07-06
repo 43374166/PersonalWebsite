@@ -1,8 +1,8 @@
 /* eslint-disable */
 const path = require('path');
 const { NodeSSH } = require('node-ssh');
-const localPath = path.join(__dirname, '../dist');
 const config = require('./serverConfig.js');
+const localPath = path.join(__dirname, '../dist'); // 本地路径
 const remotePath = config.remotePath; // 部署路径
 
 const ssh = new NodeSSH();
@@ -42,6 +42,7 @@ ssh.connect({
         },
       })
       .then(res => {
+        console.log('the directory transfer was', res ? 'successful' : 'unsuccessful')
         console.log('😜部署开始');
         for (let i = 0; i < successful.length; i++) {
           console.log(successful[i]);
