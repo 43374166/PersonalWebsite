@@ -48,7 +48,7 @@ export default {
     };
   },
   created() {
-    
+    this.fullscreenLoading = true
   },
   mounted() {
     setTimeout(() => {

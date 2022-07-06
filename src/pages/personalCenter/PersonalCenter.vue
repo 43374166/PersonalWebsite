@@ -56,9 +56,6 @@
         </el-tabs>
       </div>
     </div>
-    <div>
-      <router-view />
-    </div>
 
     <!-- 展示修改资料信息 -->
     <div v-show="isShow" class="updated-userinfo">
@@ -177,7 +174,7 @@ export default {
           this.userinfo = res.data;
           // console.log(this.userinfo);
           this.$router.push({
-            path: `/personalcenter/${this.userinfo.username}/portfolio`
+            path: `/personalcenter?user=${this.userinfo.username}`
           })
           const date = new Date(res.data.age);
           const nowDate = new Date(new Date().getTime()).getFullYear();
@@ -312,9 +309,9 @@ export default {
     },
 
     handleClick(event) {
-      this.$router.push({
-        path: `/personalcenter/${this.userinfo.username}/${event.name}`
-      })
+      // this.$router.push({
+      //   path: `/personalcenter/${this.userinfo.username}/${event.name}`
+      // })
     }
   },
 };

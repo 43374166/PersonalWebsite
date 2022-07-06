@@ -81,6 +81,7 @@ export default {
 
   img {
     width: 100%;
+    object-fit: cover;
   }
 
   .el-carousel__indicators {

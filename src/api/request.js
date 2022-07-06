@@ -13,8 +13,8 @@ export function request(config) {
   }
   // 1.创建axios的实例
   const instance = axios.create({
-    baseURL: 'http://159.138.57.207:8080',
-    // baseURL: baseURL,
+    // baseURL: 'http://159.138.57.207:8080',
+    baseURL: baseURL,
     timeout: 5000
   })
 

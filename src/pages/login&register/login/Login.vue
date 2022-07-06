@@ -30,7 +30,7 @@
             v-model="userData.password"
           >
           </el-input>
-          <el-button type="primary" @click="commitData" plain>登录</el-button>
+          <el-button :loading="loading" type="primary" @click="commitData" plain>登录</el-button>
         </div>
         <div class="go-create-account">
           <a href="./forgetPwd.html">找回密码</a> /
@@ -48,6 +48,7 @@ export default {
   data() {
     return {
       userData: { username: "", password: "", verificationCode: "" },
+      loading: false
     };
   },
   methods: {
@@ -56,17 +57,21 @@ export default {
         username: this.userData.username,
         password: this.userData.password,
       };
+
+      this.loading = true
       if (this.userData.username != "" && this.userData.password != "") {
         login("/api/login", parmas).then((res) => {
           if (res.status == 0) {
             localStorage.setItem("token", res.token);
             this.$message({
-              message: res.message,
+              message: res.message + ',马上自动跳转',
               type: "success",
+              center: true
             });
 
             setTimeout(() => {
               window.location.replace("/");
+              this.loading = false
             }, 3000);
           }
           if (res.status == 1) {

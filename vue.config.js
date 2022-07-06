@@ -51,7 +51,7 @@ module.exports = {
     personalcenter: {
       entry: './src/pages/personalCenter/personalCenter.js',
       title: '鱼梦-个人中心',
-      filename: 'personalCenter/index.html'
+      filename: 'personalcenter/index.html'
     },
   },
 

@@ -51,10 +51,10 @@
                 <div class="nikename">{{userinfo.nickname}}</div>
                 <div class="hyperlinks">
                   <div class="hyperlinks-box" v-for="(item, index) in hrefs">
-                    <div class="hyperlinks-item">
+                    <div class="hyperlinks-item" @click="goItem(item.href)">
                       <div class="icon-left">
                         <i class="icon-left-i" :class="item.icon"></i>
-                        <a class="hyperlink" :href="item.href">{{item.text}}</a>
+                        <div class="hyperlink">{{item.text}}</div>
                       </div>
                       <i class="el-icon-arrow-right icon-right"></i>
                     </div>
@@ -88,7 +88,7 @@ export default {
       isShowSearch: false,
       value: '',
       userinfo: {},
-      src: 'http://106.13.185.143:8080/uploads/images/Logo-FD.png',
+      src: 'http://159.138.57.207:8080/uploads/images/Logo-FD.png',
       activeIndex: "1",
       isCollapse: true,
       isLogin: false,
@@ -131,7 +131,7 @@ export default {
     },
     logout() {
       localStorage.removeItem('token');
-      window.location.replace('/login.html')
+      window.location.replace('/login')
     },
     onSearch() {
 
@@ -141,6 +141,9 @@ export default {
     },
     noShowSearch() {
       this.isShowSearch = false
+    },
+    goItem(href) {
+      window.location.replace(`./${href}`)
     }
   },
 };
@@ -236,25 +239,28 @@ export default {
   position: relative;
   z-index: 100;
   box-shadow: 0px 1px 5px 1px rgba(0, 0, 0, 0.2);
-  transform: scale(2) translate(-10%, 20%);
+  transform: scale(2) translate(0%, 20%);
   transition: 0.3s all;
+}
+
+.userinfo {
+  margin-right: 100px;
+  position: relative;
 }
 
 .userInfo-tab {
   background-color: #fff;
   position: absolute;
+  // margin-top: 600px;
   display: none;
   opacity: 0;
-  /* display: flex;
-  flex-direction: column;
-  justify-content:  space-evenly;
-  align-items: center; */
   width: 220px;
   height: 450px;
-  right: 30px;
   border-radius: 5px;
   transition: 0.3s all;
-  
+  transform: translateX(-50%);
+  left: 50%;
+  right: 50%;
 }
 
 .userinfo:hover .userInfo-tab{
@@ -311,7 +317,7 @@ export default {
   transition: 0.3s all;
 }
 
-.hyperlinks-item a {
+.hyperlinks-item .hyperlink {
   display: inline-block;
   margin-left: 7px;
   text-decoration: none;
@@ -338,6 +344,10 @@ export default {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+
+    // /deep/.el-input__inner {
+    //   // border: 1px solid #FFF;
+    // }
   }
   .search {
     position: absolute;
@@ -349,6 +359,39 @@ export default {
     z-index: -1;
     border-radius: 0 0 5px 5px;
     transition: all 0.3s;
+
+    .before-search {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+
+      .history-search {
+        // flex: 1;
+
+        .history-title {
+          font-size: 16px;
+          font-weight: 600;
+
+          padding: 20px;
+        }
+      }
+
+      .hot-search {
+        // flex: 1;
+
+        .hot-title {
+          font-size: 16px;
+          font-weight: 600;
+
+          padding: 0 20px;
+        }
+      }
+    }
+  }
+
+  .hyperlink {
+    display: inline;
   }
 }
 </style>

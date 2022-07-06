@@ -6,7 +6,6 @@
           <el-image
             :src="item"
             :on-close="()=>{showViewer=true}"
-            :preview-src-list="item | filterImg"
             fit="cover"
             lazy
           >
