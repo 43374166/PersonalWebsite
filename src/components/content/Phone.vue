@@ -13,7 +13,7 @@
 export default {
   methods: {
     downloadApp() {
-
+      window.location.href = 'http://159.138.57.207:8080/uploads/apk/FishDream.apk'
     }
   }
 }
