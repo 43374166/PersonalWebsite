@@ -33,8 +33,8 @@
           <el-button :loading="loading" type="primary" @click="commitData" plain>登录</el-button>
         </div>
         <div class="go-create-account">
-          <a href="./forgetPwd.html">找回密码</a> /
-          <a href="./register.html">注册</a>
+          <a href="../forgetPwd">找回密码</a> /
+          <a href="../register">注册</a>
         </div>
       </div>
     </div>

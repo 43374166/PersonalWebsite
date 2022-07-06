@@ -132,7 +132,7 @@ export default {
             message: "修改密码成功！",
           });
           setTimeout(() => {
-            window.location.replace("./login.html");
+            window.location.replace("../login");
           }, 3000);
         } else if (res.status === 1) {
           this.$message({

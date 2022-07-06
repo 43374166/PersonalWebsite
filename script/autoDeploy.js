@@ -1,7 +1,7 @@
 /* eslint-disable */
 const path = require('path');
 const { NodeSSH } = require('node-ssh');
-const config = require('./serverConfig.js');
+const config = require('./config.js');
 const localPath = path.join(__dirname, '../dist'); // 本地路径
 const remotePath = config.remotePath; // 部署路径
 
@@ -12,7 +12,7 @@ const exec = require('child_process').execSync;
 const name = exec('git rev-parse --abbrev-ref HEAD')
   .toString()
   .trim();
-if (name !== 'master') return console.log('⚠️⚠️⚠️请确保在 "master" 分支发布');
+if (name !== 'main') return console.log('⚠️⚠️⚠️请确保在 "main" 分支发布');
 
 ssh.connect({
     host: config.host,
@@ -42,8 +42,6 @@ ssh.connect({
         },
       })
       .then(res => {
-        console.log('the directory transfer was', res ? 'successful' : 'unsuccessful')
-        console.log('😜部署开始');
         for (let i = 0; i < successful.length; i++) {
           console.log(successful[i]);
         }
@@ -51,5 +49,8 @@ ssh.connect({
         console.log('💩部署失败文件数：' + failed.length, failed.join(', '));
         console.log('😜部署成功文件数：' + successful.length);
         process.exit();
-      });
+      })
+      .catch(err => {
+        console.log(err);
+      })
   });

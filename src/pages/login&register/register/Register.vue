@@ -105,7 +105,7 @@
           <el-button type="primary" @click="commitData" plain>注册</el-button>
         </div>
         <div class="go-login">
-          <a href="./login.html">已有账号！去登录</a>
+          <a href="../login">已有账号！去登录</a>
         </div>
       </div>
     </div>
