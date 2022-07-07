@@ -2,15 +2,7 @@ import axios from 'axios'
 
 export function request(config) {
   // 区分开发环境和生产环境
-  let baseURL = ''
-
-  if(process.env.VUE_APP_CURRENTMODE == 'production') {
-    baseURL = 'http://159.138.57.207:8080'
-  }
-
-  if(process.env.VUE_APP_CURRENTMODE == 'development') {
-    baseURL = 'http://127.0.0.1:8080'
-  }
+  let baseURL = process.env.VUE_APP_CURRENTMODE === 'development' ? 'http://127.0.0.1:8080' : 'http://159.138.57.207:8080'
   // 1.创建axios的实例
   const instance = axios.create({
     // baseURL: 'http://159.138.57.207:8080',
