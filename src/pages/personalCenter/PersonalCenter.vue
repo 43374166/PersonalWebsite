@@ -173,9 +173,9 @@ export default {
           }
           this.userinfo = res.data;
           // console.log(this.userinfo);
-          this.$router.push({
-            path: `/personalcenter?user=${this.userinfo.username}`
-          })
+          // this.$router.push({
+          //   path: `/personalcenter?user=${this.userinfo.username}`
+          // })
           const date = new Date(res.data.age);
           const nowDate = new Date(new Date().getTime()).getFullYear();
           this.userinfo.ageTime = nowDate - date.getFullYear();
