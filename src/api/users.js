@@ -52,11 +52,19 @@ function changePwd(url, params) {
   })
 }
 
+function getVersion() {
+  return request({
+    method: 'get',
+    url: '/api/getVersion'
+  })
+}
+
 export {
   get,
   sentEmaliV,
   register,
   login,
   forgetPwdGetCode,
-  changePwd
+  changePwd,
+  getVersion
 }

@@ -4,16 +4,34 @@
       <h3 class="top">正在使用手机端...</h3>
       <span>当前不支持手机端浏览，请下载app！</span> 
       <el-button class="downloadBtn" @click="downloadApp" type="primary">Download</el-button>
+      <span>当前版本{{version}}</span>
       <div class="copyright">CopyRight@</div>
     </div>
   </div>
 </template>
 
 <script>
+import { getVersion } from '../../api/users'
 export default {
+  data() {
+    return {
+      version: '1.0.0',
+    }
+  },
+  created() {
+    this.getNewVersion()
+  },
   methods: {
     downloadApp() {
-      window.location.href = 'http://159.138.57.207:8080/uploads/apk/FishDream.apk'
+      window.location.href = `http://159.138.57.207:8080/uploads/apk/FishDream-${this.version}.apk`
+    },
+
+    getNewVersion() {
+      getVersion().then(res => {
+        if(res.status === 0) {
+          this.version = res.data.app_version
+        }
+      })
     }
   }
 }
